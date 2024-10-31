@@ -1136,7 +1136,7 @@ table {
 }
 
 .details__brand span {
-  color: var(--first-color);
+  color: red;
 }
 
 .details__price {
@@ -1235,11 +1235,11 @@ table {
   -o-border-radius: 0.25rem;
 }
 
-.details__action-btn {
+/* .details__action-btn {
   color: var(--text-color);
   line-height: 40px;
   padding-inline: 0.75rem;
-}
+} */
 
 .details__meta {
   border-top: 1px solid var(--border-color-alt);
