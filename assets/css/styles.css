@@ -620,12 +620,12 @@ table {
 }
 
 .product__badge {
-  position: absolute;
+  /* position: absolute; */
   left: 1.25rem;
   top: 1.25rem;
   background-color: var(--first-color);
-  color: var(--body-color);
-  padding: 0.25rem 0.625rem;
+  background-color: hsl(176, 88%, 27%);
+  padding: 0.15rem 0.625rem;
   font-size: var(--tiny-font-size);
   border-radius: 2.5rem;
   -webkit-border-radius: 2.5rem;
@@ -634,20 +634,8 @@ table {
   -o-border-radius: 2.5rem;
 }
 
-.product__badge.light-pink {
-  background-color: hsl(341, 100%, 73%);
-}
-
-.product__badge.light-green {
-  background-color: hsl(155, 20%, 67%);
-}
-
-.product__badge.light-orange {
-  background-color: hsl(24, 100%, 73%);
-}
-
-.product__badge.light-blue {
-  background-color: hsl(202, 53%, 76%);
+.product__badge.red {
+  background-color: red;
 }
 
 .product__content {
