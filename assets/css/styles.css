@@ -206,41 +206,47 @@ table {
 }
 
 /*=============== HOME ===============*/
-.home__container {
-  grid-template-columns: 5fr 7fr;
-  align-items: center;
+.home {
+  padding: 2rem; /* Add padding around the section */
+  background-color: #f8f9fa; /* Light background for contrast */
 }
 
-.home__subtitle,
-.home__description {
-  font-size: var(--large-font-size);
+.home__container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text within the container */
+}
+
+.home__content {
+  margin: 1rem 0; /* Add margin for spacing around content */
 }
 
 .home__subtitle {
-  font-family: var(--second-font);
-  font-weight: var(--weight-600);
-  margin-bottom: 1rem;
-  display: block;
+  font-size: 1.2rem; /* Subtitle font size */
+  color: #6c757d; /* Subtitle color for subtle emphasis */
+  margin-bottom: 0.5rem; /* Space between subtitle and title */
 }
 
 .home__title {
-  font-size: var(--h1-font-size);
-  font-weight: var(--weight-700);
-  line-height: 1.4;
+  font-size: 2.5rem; /* Title font size */
+  font-weight: bold; /* Make the title bold */
+  color: #343a40; /* Dark color for contrast */
+  margin: 0; /* Remove default margin */
 }
 
 .home__title span {
-  color: var(--first-color);
-  font-size: var(--big-font-size);
+  color: #007bff; /* Color for the highlighted part of the title */
 }
 
 .home__description {
-  margin-block: 0.5rem 2rem;
+  font-size: 1.2rem; /* Description font size */
+  color: #495057; /* Slightly lighter dark color for description */
+  max-width: 600px; /* Limit the width for readability */
+  margin: 1rem auto; /* Center with auto margins */
+  line-height: 1.5; /* Increase line height for readability */
 }
 
-.home__img {
-  justify-self: flex-end;
-}
 
 /*=============== BUTTONS ===============*/
 .btn {
@@ -362,7 +368,9 @@ table {
 /*=============== PRODUCTS ===============*/
 
 .products__container {
-  grid-template-columns: repeat(4, 1fr);
+  display: grid; /* Ensure it's displayed as a grid */
+  grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+  gap: 1.5rem; /* Space between items */
 }
 
 .product__item {
@@ -777,30 +785,31 @@ button {
 }
 
 .product-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusts columns based on container size */
+  gap: 15px; /* Space between items */
+  padding: 1rem; /* Padding around the grid */
+  justify-items: center; /* Centers items within the grid */
 }
 
 .product-card {
   position: relative;
-  width: 350px;
+  width: 100%; /* Make card responsive */
+  max-width: 350px; /* Set a maximum width for larger screens */
   height: 500px;
-  margin: 20px;
+  margin: 20px auto; /* Center the card */
   border: 1px solid #ffffff;
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Slightly increased shadow for depth */
   text-align: center;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease; /* Adjusted transition speed for a snappier feel */
 }
 
 .product-image {
-  width: auto;
-  height: auto;
-  position: relative;
+  width: 100%; /* Ensure the image container is full width */
+  height: 300px; /* Fixed height for consistency */
   overflow: hidden;
 }
 
@@ -823,7 +832,7 @@ button {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.5s ease-in, transform 0.5s ease;
+  transition: opacity 0.3s ease-in, transform 0.3s ease; /* Reduced transition time */
 }
 
 .product-card:hover .hover-photo {
@@ -856,11 +865,13 @@ button {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap onto the next line if there's not enough space */
   gap: 10px; /* Adds space between items */
+  justify-content: center; /* Centers the results within the container */
 }
 
 .result-item {
   position: relative;
-  width: 350px; /* Set the desired width */
+  width: 100%; /* Make item responsive */
+  max-width: 350px; /* Set a maximum width for larger screens */
   height: 450px; /* Set the desired height */
   margin: 20px;
   border: 1px solid #ddd;
@@ -870,4 +881,3 @@ button {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-
