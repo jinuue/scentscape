@@ -91,10 +91,6 @@ let swiperProducts = new Swiper(".new__container", {
   },
 });
 
-
-
-
-
 // Define product data
 const products = [
   {
@@ -456,6 +452,17 @@ const products = [
   }
 ];
 
+// Image based on gender
+function getProductImages(gender) {
+  if (gender.includes("Men")) {
+      return ["assets/img/product-2-1.png", "assets/img/product-2-2.png"];
+  } else if (gender.includes("Women")) {
+      return ["assets/img/product-1-1.png", "assets/img/product-1-2.png"];
+  }
+  return ["assets/img/product-5-1.png", "assets/img/product-5-2.png"];
+}
+
+// Populate Product Cards
 function populateProductCards(filteredProducts = products) {
   const productContainer = document.getElementById('all-products');
   productContainer.innerHTML = ''; // Clear previous content
@@ -464,18 +471,7 @@ function populateProductCards(filteredProducts = products) {
       const card = document.createElement('div');
       card.classList.add('product-card');
 
-      // Determine image paths based on gender
-      let image1, image2;
-      if (product.gender.includes("Men")) {
-          image1 = "assets/img/product-2-1.png";
-          image2 = "assets/img/product-2-2.png";
-      } else if (product.gender.includes("Women")) {
-          image1 = "assets/img/product-1-1.png";
-          image2 = "assets/img/product-1-2.png.png";
-      } else {
-          image1 = "assets/img/product-5-1.png";
-          image2 = "assets/img/product-5-2.png";
-      }
+      const [image1, image2] = getProductImages(product.gender);
 
       // HTML structure for the product card
       card.innerHTML = `
@@ -516,7 +512,7 @@ function findPerfumes() {
       filteredPerfumes.forEach(perfume => {
           const perfumeElement = document.createElement("div");
           perfumeElement.classList.add("product-card");
-          perfumeElement.classList.add("result-item"); // Add this line
+          perfumeElement.classList.add("result-item");
 
           // Determine image paths based on gender
           let image1, image2;

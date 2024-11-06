@@ -148,6 +148,7 @@ img {
   margin-bottom: 20px;
 }
 
+/* Find Perfumes Button */
 button {
   display: block;
   margin: 20px auto;
@@ -164,7 +165,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Darkens background on hover */
+  background-color: #99adc2; /* Darkens background on hover */
   transform: scale(1.05); /* Slightly enlarges button on hover */
 }
 
@@ -225,7 +226,7 @@ button:hover {
 }
 
 .home__content {
-  margin: 1rem 0; /* Add margin for spacing around content */
+  margin: 0; /* Add margin for spacing around content */
 }
 
 .home__description {
@@ -267,13 +268,12 @@ button:hover {
   overflow: initial;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.swiper-button-next::after, .swiper-button-prev::after {
   content: "";
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
+  position: fixed; /* Fix buttons in place */
   top: -1.875rem;
   background-color: var(--first-color-alt);
   border: 1px solid var(--border-color);
@@ -282,10 +282,13 @@ button:hover {
   color: var(--first-color);
   font-size: var(--tiny-font-size);
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+
+  transform: translateY(-50%); /* Adjust to keep center aligned */
+  background-color: var(--first-color-alt);
+  z-index: 10; /* Ensures buttons stay above other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .swiper-button-prev {
@@ -296,8 +299,6 @@ button:hover {
 .swiper-button-next {
   right: 0;
 }
-
-
 
 /* Product Hover Effects*/
 .product__item:hover {
@@ -423,6 +424,13 @@ button:hover {
 }
 
 /* RESULT SUGGESTION */
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
 .results-container {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap onto the next line if there's not enough space */
@@ -442,6 +450,7 @@ button:hover {
   border-radius: 8px;
   padding: 10px;
   position: relative;
+  transition: transform 0.3s ease;
 }
 
 .result-item img {
@@ -462,7 +471,6 @@ button:hover {
 }
 
 /*BREAKPOINTS FOR RESPONSIVENESS*/
-
 /* Adjust for larger tablet and smaller desktop screens */
 @media screen and (max-width: 992px) {
   .container {
@@ -561,3 +569,4 @@ button:hover {
 /* MALAKI SCALING */
 /* NASIRA FRAGANCE GUIDE NA PAGE */
 /* DI PA NAGSSHOW PICS SA SUGGESTION */
+/* BAKIT NASAMA UNG SWIPER HAAHHAA */
