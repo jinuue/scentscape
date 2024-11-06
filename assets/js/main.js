@@ -489,6 +489,10 @@ function populateProductCards(filteredProducts = products) {
   productContainer.innerHTML = ''; // Clear previous content
 
   filteredProducts.forEach(product => {
+      
+      const productWrapper = document.createElement('div');
+      productWrapper.classList.add('product-wrapper'); 
+
       const card = document.createElement('div');
       card.classList.add('product-card');
 
@@ -502,18 +506,29 @@ function populateProductCards(filteredProducts = products) {
           </div>
           <h3>${product.name}</h3>
           <p>${product.description}</p>
-          <a href="${product.buy_link}" class = "buy-button" target="_blank">Buy Now</a>
       `;
 
-      productContainer.appendChild(card);
+      // Create the Buy Now button
+      const buyButton = document.createElement('a');
+      buyButton.href = product.buy_link;
+      buyButton.classList.add('buy-button');
+      buyButton.target = "_blank";
+      buyButton.textContent = "Buy Now";
+
+      // Append card and button to the product wrapper
+      productWrapper.appendChild(card);
+      productWrapper.appendChild(buyButton);
+
+      // Append the wrapper to the main container
+      productContainer.appendChild(productWrapper);
   });
 }
+
 
 // Initial population of product cards
 populateProductCards();
 
 function findPerfumes() {
-  // Get selected values from the dropdowns
   const selectedtopNote = document.getElementById("topNote").value;
   const selectedmiddleNote = document.getElementById("middleNote").value;
   const selectedbaseNote = document.getElementById("baseNote").value;
@@ -532,38 +547,48 @@ function findPerfumes() {
   if (filteredPerfumes.length > 0) {
       filteredPerfumes.forEach(perfume => {
           const perfumeElement = document.createElement("div");
-          perfumeElement.classList.add("product-card");
-          perfumeElement.classList.add("result-item");
+          perfumeElement.classList.add("result-item"); // Only add the result-item class to the card
 
-          // Determine image paths based on gender
+          // Set images based on gender
           let image1, image2;
           if (perfume.gender.includes("Men")) {
-              image1 = "assets/product-4-1.png";
-              image2 = "assets/product-4-2.png";
+              image1 = "assets/img/product-4-1.png";
+              image2 = "assets/img/product-4-2.png";
           } else if (perfume.gender.includes("Women")) {
-              image1 = "assets/product-3-1.png";
-              image2 = "assets/product-3-2.png";
+              image1 = "assets/img/product-3-1.png";
+              image2 = "assets/img/product-3-2.png";
           } else {
-              image1 = "assets/product-2-1.png";
-              image2 = "assets/product-2-2.png";
+              image1 = "assets/img/product-2-1.png";
+              image2 = "assets/img/product-2-2.png";
           }
 
-          // Construct the detailed HTML for each product
+          // Construct the card HTML
           perfumeElement.innerHTML = `
               <div class="product__content">
-                  <img src="${image1}" alt="${perfume.name}" class="product__img">
-                  <img src="${image2}" alt="${perfume.name} Hover" class="product__img">
+                  <div class="result-image">
+                      <img src="${image1}" alt="${perfume.name}" class="product__img"
+                           onerror="this.src='assets/img/default-placeholder.png';">
+                  </div>
+                  <h3>${perfume.name}</h3>
+                  <p>${perfume.description}</p>
+                  <p><strong>Gender:</strong> ${perfume.gender}</p>
               </div>
-              
-              <h3>${perfume.name}</h3>
-              <p>${perfume.description}</p>
-              <p><strong>Gender:</strong> ${perfume.gender}</p>
-              <a href="${perfume.buy_link}" class="buy-button" target="_blank">Buy Now</a>
           `;
 
+          // Create the "Buy Now" button and place it outside the card (but still related to the card)
+          const buyButton = document.createElement("a");
+          buyButton.href = perfume.buy_link;
+          buyButton.classList.add("buy-button");
+          buyButton.target = "_blank";
+          buyButton.textContent = "Buy Now";
+
+          // Append the card and the button to the results div
           resultsDiv.appendChild(perfumeElement);
+          resultsDiv.appendChild(buyButton);
       });
   } else {
       resultsDiv.textContent = "No perfumes found.";
   }
 }
+
+

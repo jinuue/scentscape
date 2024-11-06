@@ -132,8 +132,13 @@ img {
 
 /* Section title styling */
 .section__title {
-  font-size: var(--h1-font-size); /* Uses custom font size */
-  margin-bottom: 1.5rem; /* Adds space below the title */
+  font-size: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.section__title1 {
+  font-size: var(--h1-font-size);
+  color: var(--first-color);
 }
 
 .section__title span {
@@ -146,6 +151,8 @@ img {
   background-color: #f9f9f9; /* Light gray background */
   padding: 3rem 1rem; /* Large vertical and horizontal padding */
   text-align: center; /* Center-align text */
+  background-color: var(--first-color-alt);
+
 }
 
 /* Layout for notes container */
@@ -159,10 +166,10 @@ img {
 /* Hidden by default, displayed when active */
 .tab__content {
   display: none; /* Hides inactive tabs */
-  background-color: #fff; /* White background for content */
+  background-color: white;
   padding: 2rem; /* Padding around content */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .active-tab {
@@ -170,7 +177,7 @@ img {
 }
 
 .tab__header {
-  font-size: 1.5rem; /* Larger font for headers */
+  font-size: 2.5rem; /* Larger font for headers */
   font-weight: bold;
   color: #333; /* Darker text color */
   margin-bottom: 1rem; /* Space below header */
@@ -231,32 +238,43 @@ img {
 /* Layout for card containers */
 .cards {
   display: flex;
-  justify-content: space-around; /* Spreads cards evenly */
+  justify-content: space-around; 
   margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: var(--first-color);
+  width: auto;
+
 }
+
+.allproducts {
+  color: var(--first-color);
+  font-size: 30px;
+}
+
 
 /* Styling for individual cards */
 .card {
-  width: 150px;
+  width: 20%;
   height: 150px; /* Square shape */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; /* Centers content */
-  background-color: var(--background-color); /* Uses variable color */
+  /* background-color: var(--background-color); */
   border-radius: 8px; /* Rounded corners */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   text-align: center;
 }
 
 .card h2 {
-  font-size: var(--h2-font-size); /* Header size for card title */
+  font-size: 20px;
   margin: 0;
-  color: var(--first-color); /* Title color */
+  color: white; /* Title color */
 }
 
 .card select {
   margin-top: 20px; /* Space between title and dropdown */
+  background-color: none;
 }
 
 /*=============== RESPONSIVE STYLING ===============*/
@@ -290,31 +308,34 @@ button {
   margin: 20px auto;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 1.5em; /* Font size of the button text */
-  font-weight: bold; /* Makes text bold */
+  font-size: 1em; /* Font size of the button text */
+  font-weight: light; /* Makes text bold */
   padding: 10px 20px; /* Adds padding for a larger button */
   background-color: #fff;
-  border: 1px solid; /* Removes default border */
+  border: 1px solid var(--first-color); /* Removes default border */
   border-radius: 5px; /* Rounds the corners */
   cursor: pointer; /* Changes cursor to pointer on hover */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+  transition: background-color 0.3s, transform 0.2s; 
+  margin-bottom: 90px;
 }
 
 button:hover {
-  background-color: #99adc2; /* Darkens background on hover */
-  transform: scale(1.05); /* Slightly enlarges button on hover */
+  transform: scale(1.05); 
+  color: var(--first-color);
+  border-color: 4px solid var(--first-color);
 }
 
 /*=============== HEADER & NAV ===============*/
 .nav, .nav__menu, .nav__list, .header__user-actions {
   display: flex;
   align-items: center;
-  background-color: var(--first-color-alt);
+  /* background-color: var(--first-color-alt); */
 }
 
 .nav {
   height: calc(var(--header-height) + 2.5rem);
   justify-content: space-between;
+  margin-left: 50px;
 }
 
 .nav__logo-img {
@@ -366,18 +387,21 @@ button:hover {
 }
 
 .home__description {
-  font-size: 2rem; /* Description font size */
+  font-size: 1.5rem; /* Description font size */
   color: #495057; /* Slightly lighter dark color for description */
   max-width: 600px; /* Limit the width for readability */
   margin: 1.5rem auto; /* Center with auto margins */
   line-height: 1.5; /* Increase line height for readability */
+  margin-top: -10px;
+  margin-bottom: 50px;
+
 }
 
 /*CATEGORIES DISCOVER FRAGRANCE*/
 .categories {
   overflow: hidden;
   max-width: 1200px; /* Limits the max width for large screens */
-  width: 100%; /* Full width of the screen on smaller devices */
+  width: 80%; /* Full width of the screen on smaller devices */
   padding: 0 1rem; /* Adds padding for smaller screens */
   margin: 0 auto; /* Centers the container */
 }
@@ -497,10 +521,12 @@ button:hover {
 
 .product-cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   padding: 1rem;
   justify-items: center;
+  background-color: var(--first-color-alt);
+
 }
 
 .product-card {
@@ -527,7 +553,7 @@ button:hover {
 .product-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:scale-down;
   transition: transform 0.3s ease;
 }
 
@@ -566,52 +592,116 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* RESULT SUGGESTION */
+/* RESULTS CONTAINER */
 #results {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
-.results-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to wrap onto the next line if there's not enough space */
-  gap: 10px; /* Adds space between items */
-  justify-content: center; /* Centers the results within the container */
-}
-
+/* RESULT ITEM CONTAINER */
 .result-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 230px;
-  height: 400px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 10px;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.result-item img {
   width: 100%;
-  height: 80%;
-  object-fit: cover;
+  max-width: 300px; /* Limit card width */
+  height: auto; /* Allow card to grow with content */
+  background-color: #f9f9f9;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-}
-
-.result-item span {
-  font-weight: bold;
-  margin-top: 10px;
-  color: #333;
+  padding: 15px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .result-item:hover {
   transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* IMAGE STYLING */
+.result-image {
+  width: 100%;
+  height: 300px; /* Adjusted height */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.result-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the image fills the space */
+  transition: transform 0.3s ease;
+}
+
+/* TEXT STYLING */
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* BUTTON STYLING (Positioned outside the card, under it) */
+.result-item .buy-button {
+  display: inline-block;
+  margin: 10px 0; /* Space between product card and button */
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 50%; /* Button takes up full width of its container */
+  height: 5%;
+  text-align: center;
+}
+
+.result-item .buy-button:hover {
+  background-color: #0056b3;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .results-container {
+    grid-template-columns: repeat(2, 1fr); /* For tablets */
+  }
+
+  .result-item {
+    max-width: 280px; /* Slightly reduce card size on smaller screens */
+  }
+
+  .result-item .buy-button {
+    max-width: 50%; /* Limit button width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .results-container {
+    grid-template-columns: 1fr; /* For mobile devices */
+  }
+
+  .result-item {
+    max-width: 100%; /* Full width for mobile */
+  }
+
+  .result-item .buy-button {
+    max-width: 100%; /* Button takes up full width on mobile */
+  }
+}
+
+
 
 /*BREAKPOINTS FOR RESPONSIVENESS*/
 /* Adjust for larger tablet and smaller desktop screens */
@@ -712,4 +802,57 @@ button:hover {
 /* MALAKI SCALING */
 /* DI PA NAGSSHOW PICS SA SUGGESTION */
 
+.product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px; /* Space between each product */
+}
+
+.product-card {
+  width: 100%; /* Adjust width as needed */
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.buy-button {
+  margin-top: -5px; /* Space between card and button */
+  padding: 10px 20px;
+  background-color: var(--first-color); 
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.buy-button:hover {
+  background-color: white; 
+  border: solid 1px var(--first-color);
+  color: var(--first-color);
+}
+
+
+/*=============== FOOTER ===============*/
+.footer__container {
+  /* grid-template-columns: 4.5fr repeat(2, 2fr) 3.5fr; */
+  /* padding-block: 2.5rem; */
+  background-color: var(--border-color);
+}
+
+.footer__bottom {
+  text-align: center;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--border-color-alt);
+}
+
+.copyright,
+.designer {
+  color: var(--text-color-light);
+  font-size: var(--small-font-size);
+  text-align: center;
+}
 
