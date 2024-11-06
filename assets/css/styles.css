@@ -576,22 +576,6 @@ button:hover {
   opacity: 1;
 }
 
-/* BUY BUTTON */
-.buy-button {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.buy-button:hover {
-  background-color: #0056b3;
-}
-
 /* RESULTS CONTAINER */
 #results {
   display: flex;
@@ -604,27 +588,23 @@ button:hover {
 /* RESULT ITEM CONTAINER */
 .result-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /* Stack content vertically */
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: 100%; /* Take up full width of parent container */
   max-width: 300px; /* Limit card width */
-  height: auto; /* Allow card to grow with content */
+  height: auto; /* Let the card grow with content */
   background-color: #f9f9f9;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 15px;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  box-sizing: border-box; /* Include padding in width/height calculation */
 }
 
-.result-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
 
-/* IMAGE STYLING */
+/* RESULT ITEM IMAGE STYLING */
 .result-image {
   width: 100%;
   height: 300px; /* Adjusted height */
@@ -653,24 +633,30 @@ p {
   margin: 5px 0;
 }
 
-/* BUTTON STYLING (Positioned outside the card, under it) */
-.result-item .buy-button {
-  display: inline-block;
-  margin: 10px 0; /* Space between product card and button */
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
+.result-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+#results .buy-button {
+  margin-top: -5px; /* Space between card and button */
+  padding: 10px 20px;
+  background-color: var(--first-color); 
+  color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  transition: background-color 0.3s;
-  width: 50%; /* Button takes up full width of its container */
-  height: 5%;
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
-.result-item .buy-button:hover {
-  background-color: #0056b3;
+#results .buy-button:hover {
+  background-color: white; 
+  border: solid 1px var(--first-color);
+  color: var(--first-color);
 }
+
+
+
 
 /* RESPONSIVENESS */
 @media (max-width: 768px) {
@@ -818,7 +804,7 @@ p {
   background-color: #fff;
 }
 
-.buy-button {
+.product-card .buy-button {
   margin-top: -5px; /* Space between card and button */
   padding: 10px 20px;
   background-color: var(--first-color); 
@@ -829,7 +815,7 @@ p {
   text-align: center;
 }
 
-.buy-button:hover {
+.product-card .buy-button:hover {
   background-color: white; 
   border: solid 1px var(--first-color);
   color: var(--first-color);
