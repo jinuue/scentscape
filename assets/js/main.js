@@ -101,7 +101,7 @@ const products = [
       "name": "F1",
       "code": "1",
       "description": "Aficionado's version of CK ONE",
-      "top_notes": ["Fress", "Citrus"],
+      "top_notes": ["Fresh", "Citrus"],
       "middle_notes": ["Floral"],
       "base_notes": ["Amber", "Green"],
       "gender": "Eau De Parfum Unisex",
@@ -533,10 +533,11 @@ function findPerfumes() {
 
           // Construct the detailed HTML for each product
           perfumeElement.innerHTML = `
-              <div class="product-image">
-                  <img src="${image1}" alt="${perfume.name}" class="main-photo">
-                  <img src="${image2}" alt="${perfume.name} Hover" class="hover-photo">
+              <div class="product__content">
+                  <img src="${image1}" alt="${perfume.name}" class="product__img">
+                  <img src="${image2}" alt="${perfume.name} Hover" class="product__img">
               </div>
+              
               <h3>${perfume.name}</h3>
               <p>${perfume.description}</p>
               <p><strong>Gender:</strong> ${perfume.gender}</p>
